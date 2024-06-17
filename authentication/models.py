@@ -10,3 +10,15 @@ class User(AbstractUser):
 
     def __str__(self):
         return str(self.email)
+
+class AuthenticationLog(models.Model):
+    email = models.EmailField()
+    logged_in = models.DateTimeField(auto_now_add=True)
+    ip_address = models.CharField(max_length=256)
+    is_success = models.BooleanField(default=None)
+    
+    def __str__(self):
+        return str(self.email)
+
+    class Meta:
+        ordering = ['-logged_in']
