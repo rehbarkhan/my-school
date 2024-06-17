@@ -1,0 +1,37 @@
+
+services:
+  redis:
+    container_name: redis-dev
+    image: 'bitnami/redis:latest'
+    environment:
+      - REDIS_PASSWORD=coolpassword
+    ports:
+      - 6379:6379
+    networks:
+      - appnetwork
+  
+  mailhog:
+      image: mailhog/mailhog
+      container_name: 'mailhog'
+      ports:
+        - "1025:1025"
+        - "8025:8025"
+      networks:
+        - appnetwork
+  
+  # flower:
+  #   container_name: flower-dev
+  #   image: mher/flower
+  #   ports:
+  #     - "5555:5555"  # Flower web UI port
+  #   command: celery flower -A project --port=5555
+  #   environment:
+  #     - CELERY_BROKER_URL
+  #   #   - FLOWER_PORT
+  #   depends_on:
+  #     - redis
+  #   networks:
+  #     - appnetwork
+
+networks:
+  appnetwork:
