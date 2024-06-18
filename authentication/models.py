@@ -32,8 +32,8 @@ class AccountRecovery(models.Model):
     token_validity_till = models.DateTimeField(blank=True)
     token = models.CharField(max_length=256, blank=True)
     time_stamp = models.DateTimeField(auto_now_add=True)
-    is_locked = models.BooleanField(default=None)
-    is_forget = models.BooleanField(default=None)
+    is_locked = models.BooleanField(default=False)
+    is_forget = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.email)

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'output.css' %}" />
-    <style src="{% static 'htmx.js' %}"></style>
-    <style src="{% static 'flowbite.js' %}"></style>
+    <script src="{% static 'htmx.js' %}"></script>
+    <script src="{% static 'flowbite.js' %}"></script>
 </head>
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
     

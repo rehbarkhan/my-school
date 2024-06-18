@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'dashboard.apps.DashboardConfig',
     'django_celery_results',
+    'django_htmx',
 
 ]
 
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django_htmx.middleware.HtmxMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -142,3 +144,19 @@ MESSAGE_TAGS = {
     message_constants.WARNING: 'warning',
     message_constants.ERROR: 'text-red-500 dark:text-red-300',  # Bootstrap uses 'danger' instead of 'error'
 }
+
+# Email configuration
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = '127.0.0.1'   # Here I am using gmail smtp server 
+EMAIL_PORT = 1025       # gmail smtp server port
+# EMAIL_HOST_USER = 'username@mail.com'  # Use your email account
+# EMAIL_HOST_PASSWORD = 'xxxxxxxxxxxxxxxx' # For gmail use app password
+# EMAIL_USE_TLS = True     # for SSL communication use EMAIL_USE_SSL
+
+# EMAIL_HOST="smtp.gmail.com"
+# EMAIL_HOST_USER="gitspacematrix@gmail.com"
+# EMAIL_HOST_PASSWORD="enrm ieyw bxox ywoi"
+# EMAIL_PORT=587
+# EMAIL_USE_TLS=True
+DEFAULT_EMAIL = 'django-websever@admin.com'
