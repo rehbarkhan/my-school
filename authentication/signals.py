@@ -27,7 +27,7 @@ def login_failed(sender, credentials, request, **kwargs):
         else:
             user.login_failed_attempt += 1
             user.save()
-            messages.error(request, 'Your credentail is wrong')
+            messages.error(request, 'Your credentail is incorrect')
         # logging the failed activity
         AuthenticationLog.objects.create(
             email = email,

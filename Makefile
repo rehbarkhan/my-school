@@ -12,3 +12,6 @@ docker-up:
 .PHONEY: worker
 worker:
 	celery -A project worker -l DEBUG
+.PHONEY: migrate
+migrate:
+	python manage.py makemigrations && python manage.py migrate
